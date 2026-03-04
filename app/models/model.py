@@ -7,4 +7,8 @@ class Task:
     title: str
     status: str
     priority:str
+    tags: str
+    description: str
+    responsible: str
     create_at: datetime
+    update_att: datetime

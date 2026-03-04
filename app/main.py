@@ -2,8 +2,7 @@ from pathlib import Path
 import sys 
 import json
 
-
-# # # === Rutas seguras ===
+### === Rutas seguras === ###
 APP_DIR = Path(__file__).resolve().parent         
 PROJECT_ROOT = APP_DIR.parent                      
 DATA_DIR = PROJECT_ROOT / "data"                   
@@ -25,10 +24,18 @@ def save_tasks(tasks):
 
 
 def remove_tasks(task):
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    with FILE.open("r", encoding="utf-8") as f: 
-        load_tasks()
-
+    tasks = load_tasks()
+    for task_ in tasks: 
+        if task_ == task: 
+            tasks.remove(task_)
+            save_tasks(tasks)
+    
+def update_task(task, new_task): 
+    tasks = load_tasks()
+    for i, task_ in enumerate(tasks): 
+        if task_ == task:
+            tasks[i] = new_task
+            save_tasks(tasks)
         
 tasks = load_tasks()   
 
@@ -46,6 +53,15 @@ if len (sys.argv) > 1:
         tasks.append(tarea)
         save_tasks(tasks)
         print (f"{tarea} tarea agregada.")
+    elif comando == "remove": 
+        task_remove = sys.argv[2]
+        remove_tasks(task_remove)
+        print (f"{task_remove} tarea eliminada.")
+    elif comando == "update": 
+        task_update = sys.argv[2]
+        task_new = sys.argv[3]
+        update_task(task_update,task_new)
+        print (f"{task_update} tarea actualizada {task_new}.")
     elif comando == "list": 
         print ("Tus tareas: ")
         for t in tasks: 
