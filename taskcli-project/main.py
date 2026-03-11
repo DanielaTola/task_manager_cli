@@ -9,7 +9,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 FILE = DATA_DIR / "task.json"
 
 def load_tasks(): 
-    if not FILE.exists: 
+    if not FILE.exists(): 
         return [] #retorna lo que haya en el archivo 
     with FILE.open("r", encoding="utf-8") as f:
         try:
