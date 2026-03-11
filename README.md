@@ -1,26 +1,23 @@
 # TaskCLI DevOps Project
 
-CLI tool written in Python to manage tasks from the terminal.
+Simple CLI task manager written in Python.
 
 ## Features
 
 - Add tasks
 - List tasks
-- Mark tasks as completed
+- Complete tasks
 - Remove tasks
-- JSON storage
 
-## Tech Stack
-
-- Python
-- argparse
-- pytest
-- Docker
-- GitHub Actions
-
-## Run locally
+## Run
 
 pip install -e .
 
 tareas add "learn devops"
 tareas list
+
+## Docker
+
+docker build -t taskcli .
+
+docker run taskcli
