@@ -7,6 +7,12 @@ class TaskService:
     
     def add_task(self, title:str)-> Task:
         tasks = load_tasks()
+        if not title.strip():
+            raise ValueError("El título de la tarea no puede estar vacío.")
+        elif len(title) > 100:
+            raise ValueError("El título de la tarea no puede exceder los 100 caracteres.")
+        elif title in [task.title for task in tasks]:
+            raise ValueError("Ya existe una tarea con ese título.")
         task  = Task.create(title)
         tasks.append(task)
         save_tasks(tasks)
