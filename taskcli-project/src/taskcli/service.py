@@ -1,4 +1,4 @@
-from typing import List 
+from typing import List, Optional
 from model import Task
 from storage import load_tasks, save_tasks
 import re
@@ -21,9 +21,11 @@ class TaskService:
         save_tasks(tasks)
         return task
     
-    def list_tasks(self) -> List[Task]:
-
-        return load_tasks()
+    def list_tasks(self, done:Optional[bool] = None) -> List[Task]:
+        tasks = load_tasks()
+        if done is not None: 
+            tasks = [t for t in tasks if t.done == done ]
+        return tasks
     
     def remove_task(self, task_id: str) -> bool:
         try: 

@@ -14,6 +14,13 @@ def main():
 
     subparsers.add_parser("list")
 
+    list_parser = subparsers.add_parser("list")
+    list_parser.add_argument(
+        "--done", 
+        action="store_true", 
+        help="Mostrar solo tareas completadas"
+    )
+
     remove = subparsers.add_parser("remove")
     remove.add_argument("id", help="ID de la tarea a eliminar")
 
@@ -28,7 +35,7 @@ def main():
             task = service.add_task(args.title)
             print(f"Tarea agregada: {task.id} - {task.title}")
         elif args.command == "list":
-            tasks = service.list_tasks()
+            tasks = service.list_tasks(done=args.done)
             if not tasks:
                 print("No hay tareas.")
             else:
