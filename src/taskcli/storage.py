@@ -1,15 +1,24 @@
+from __future__ import annotations
 import json
+import os
 from pathlib import Path
 from typing import List
-from model import Task
+from taskcli.model import Task
 
-DATA_FILE = Path(__file__).parent.parent.parent/ "data" / "tasks.json"
 
+def _data_file() -> Path: 
+    override = os.getenv("TASKCLI_DATA_PATH")
+    if override: 
+        return Path(override)
+    
+    project_root = Path(__file__).resolve().parents[2]
+    return project_root / "data"/ "tasks.json"
 
 def load_tasks() -> List[Task]:
-    if not DATA_FILE.exists():
+    path = _data_file()
+    if not path.exists():
         return []
-    with DATA_FILE.open("r", encoding="utf-8") as f:
+    with path.open("r", encoding="utf-8") as f:
         try:
             data = json.load(f)
             return [Task.from_dict(item) for item in data]
@@ -17,6 +26,7 @@ def load_tasks() -> List[Task]:
             return []
         
 def save_tasks(tasks: List[Task]) -> None:
-    DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with DATA_FILE.open("w", encoding="utf-8") as f:
+    path  = _data_file()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
         json.dump([task.to_dict() for task in tasks], f, ensure_ascii=False, indent=2)

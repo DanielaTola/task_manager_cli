@@ -1,7 +1,7 @@
 from typing import List, Optional
-from model import Task
-from storage import load_tasks, save_tasks
+from taskcli.storage import load_tasks, save_tasks
 import re
+from taskcli.model import Task
 
 
 class TaskService:

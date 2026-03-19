@@ -27,10 +27,10 @@ class Task:
             "done": self.done
         }
     
-    @classmethod
-    def from_dict(cls,data: dict) -> "Task":
-        return cls(
-            id=data.get("id", str(uuid.uuid4())), 
-            title=str(data.get("title", "")).strip(), 
+    @staticmethod
+    def from_dict(data: dict):
+        return Task(
+            id=data["id"],
+            title=data["title"],
             done=data.get("done", False)
         )
