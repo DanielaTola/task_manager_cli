@@ -12,7 +12,7 @@ def main():
     add =subparsers.add_parser("add")
     add.add_argument("title", help="Titulo de la tarea")
 
-    subparsers.add_parser("list")
+    #subparsers.add_parser("list")
 
     list_parser = subparsers.add_parser("list")
     list_parser.add_argument(
