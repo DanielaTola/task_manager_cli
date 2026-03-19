@@ -172,7 +172,7 @@ It is a foundation project that evolves into:
 
 ```
 
-**CLI** → API → Docker → CI/CD → Cloud Deployment
+CLI → API → Docker → CI/CD → Cloud Deployment
 
 ```
 
