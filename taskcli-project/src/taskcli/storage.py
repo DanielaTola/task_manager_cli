@@ -3,7 +3,8 @@ from pathlib import Path
 from typing import List
 from model import Task
 
-DATA_FILE = Path("data/tasks.json")
+DATA_FILE = Path(__file__).parent.parent.parent/ "data" / "tasks.json"
+
 
 def load_tasks() -> List[Task]:
     if not DATA_FILE.exists():
