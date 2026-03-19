@@ -30,7 +30,6 @@ def main():
     args = parser.parse_args()
 
     try:
-
         if args.command == "add":
             task = service.add_task(args.title)
             print(f"Tarea agregada: {task.id} - {task.title}")

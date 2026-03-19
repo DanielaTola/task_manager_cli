@@ -28,35 +28,22 @@ class TaskService:
         return tasks
     
     def remove_task(self, task_id: str) -> bool:
-        try: 
-            id_int = int(task_id)
-            if id_int < 0:
-                raise ValueError("El ID de la tarea debe ser un número entero positivo.")
-        except ValueError:
-            raise ValueError("El ID de la tarea debe ser un número entero.")
         tasks = load_tasks()
         for task in tasks: 
             if task.id == task_id: 
                 tasks.remove(task)
                 save_tasks(tasks)
                 return True
-            else:
-                raise ValueError("Tarea no encontrada.")
-        return False
+            
+        raise ValueError("Tarea no encontrada.")
     
     def complete_task(self, task_id: str) -> bool:
-        try:
-            id_int = int(task_id)
-            if id_int < 0:
-                raise ValueError("El ID de la tarea debe ser un número entero positivo.")
-        except ValueError:
-            raise ValueError("El ID de la tarea debe ser un número entero.")
         tasks = load_tasks()
         for task in tasks: 
             if task.id == task_id: 
                 task.done = True
                 save_tasks(tasks)
                 return True
-            else:
-                raise ValueError("Tarea no encontrada.")
-        return False
+            elif task.done:
+                raise ValueError("La tarea ya está marcada como completada.")
+        raise ValueError("Tarea no encontrada.")
