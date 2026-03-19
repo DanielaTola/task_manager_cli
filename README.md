@@ -1,8 +1,18 @@
-# 🧰 Task Manager CLI - DevOps Project
+# 🧰 Task Manager CLI - DevOps Oriented Python Project
 
-CLI (Command Line Interface) application built with Python to manage tasks from the terminal.
+A modular CLI (Command Line Interface) application built with Python to manage tasks directly from the terminal.
 
-This project was designed as part of my transition from Manual QA to DevOps / Backend engineering, focusing on clean architecture, modular design, and automation-friendly tools.
+This project is part of my transition from Manual QA to DevOps / Backend engineering, focusing on clean architecture, automation, and production-ready practices
+
+---
+## Key Concepts Applied
+
+* Layered architecture (CLI -> Service-> Storage)
+* Separation of concerns
+* Data persistence using JSON
+* Error handling and validation
+* CLI development with argparse
+* UUID-based entity management 
 
 ---
 
@@ -12,6 +22,7 @@ This project was designed as part of my transition from Manual QA to DevOps / Ba
 * List tasks
 * Mark tasks as completed
 * Remove tasks
+* Prevent duplicate task
 * JSON-based persistence
 
 ---
@@ -96,35 +107,73 @@ Tarea agregada: 1234-uuid - Study Docker
 
 ---
 
-## 🎯 What I Learned
+## Docker (Planned)
 
-* Building CLI tools in Python
-* Structuring applications using layered architecture
-* Managing data persistence with JSON
-* Handling errors and validations
-* Thinking in terms of scalable backend design
+```
+docker build -t taskcli .
+docker run taskcli
+
+```
+---
+## CI/CD (Planned)
+
+This project will include: 
+* GitHub Actions pipeline
+* Automated testing with pytest
+* Linting and code quality checks
+---
+## Testing (Planned)
+```
+pytest
+```
+---
+
+## ⭐ Why this project demonstrates
+
+This project demonstrates my ability to:
+
+* Desing modular Python applications 
+* Understandind of backend architecture principales
+* CLI tool development (similar to DevOps tools lije, Docker, Kubectl)
+* Preparatiom for DevOps workflows (Docker, CI/CD)
 
 ---
 
-## 🚧 Next Steps
+## 🚧 Next Improvements
 
 * Add unit tests (pytest)
 * Dockerize the application
-* Add CI/CD pipeline with GitHub Actions
+* Implement CI/CD pipeline with GitHub Actions
 * Improve CLI UX
+* Add logging
 
 ---
 
 ## 👩‍💻 About Me
 
-I am transitioning from Manual QA to DevOps/Backend engineering, focusing on automation, cloud, and scalable systems.
+I am a QA professional transitioning into DevOps ad Backend Engineering. 
+
+This project reflects my focus on: 
+* Automations
+* Scalable design 
+* Real-world engineering practices 
 
 ---
+## Why this Matters
 
-## ⭐ Why this project matters
+This is not just a task manager. 
+It is a foundation project that evolves into: 
+* API 
+* Containerized application
+* CI/CD pipeline
 
-This project demonstrates my ability to:
+---
+## Future Version 
 
-* Design clean and maintainable code
-* Build tools used in automation workflows
-* Think beyond scripts and towards real software architecture
+```
+
+**CLI** → API → Docker → CI/CD → Cloud Deployment
+
+```
+
+
