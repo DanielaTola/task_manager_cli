@@ -48,8 +48,8 @@ CLI → Service → Storage → JSON
 * argparse (CLI)
 * JSON (storage)
 * UUID (unique IDs)
-* Docker (coming soon)
-* GitHub Actions (coming soon)
+* Docker 
+* GitHub Actions 
 
 ---
 
@@ -83,8 +83,11 @@ task_manager_cli/
 ```
 env\Scripts\activate
 ```
-
-2. Run the CLI:
+2. Go to the CLI folder
+```
+cd src/taskcli
+```
+3. Run commands:
 
 ```
 python cli.py add "Learn DevOps"
@@ -128,14 +131,14 @@ pytest
 ```
 ---
 
-## ⭐ Why this project demonstrates
+## ⭐ What This Project Demonstrates
 
 This project demonstrates my ability to:
 
-* Desing modular Python applications 
-* Understandind of backend architecture principales
-* CLI tool development (similar to DevOps tools lije, Docker, Kubectl)
-* Preparatiom for DevOps workflows (Docker, CI/CD)
+* Design modular Python applications 
+* Understand backend architecture principles
+* Develop CLI tools similar to DevOps tools like Docker and Kubectl
+* Prepare applications for DevOps workflows such as Docker and CI/CD
 
 ---
 
@@ -151,10 +154,10 @@ This project demonstrates my ability to:
 
 ## 👩‍💻 About Me
 
-I am a QA professional transitioning into DevOps ad Backend Engineering. 
+I am a QA professional transitioning into DevOps and Backend Engineering. 
 
 This project reflects my focus on: 
-* Automations
+* Automation
 * Scalable design 
 * Real-world engineering practices 
 

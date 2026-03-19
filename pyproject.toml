@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taskcli"
+version = "0.1.0"
+descriptions = "Task Manager CLI buitl with Python"
+readme = "README.md"
+requires-python =">=3.11"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["taskcli"]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
