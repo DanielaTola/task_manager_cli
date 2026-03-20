@@ -44,6 +44,4 @@ class TaskService:
                 task.done = True
                 save_tasks(tasks)
                 return True
-            elif task.done:
-                raise ValueError("La tarea ya está marcada como completada.")
         raise ValueError("Tarea no encontrada.")
