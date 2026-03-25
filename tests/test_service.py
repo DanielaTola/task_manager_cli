@@ -31,12 +31,12 @@ def test_remove_task():
     task = service.add_task("Task to Remove 4")
     
     assert service.remove_task(task.id)
-    assert service.remove_task("non-existent-id")
+    assert not service.remove_task("non-existent-id")
 
 def test_complete_task():
     service = TaskService()
     task = service.add_task("Task to Complete 5")
 
     assert service.complete_task(task.id)
-    assert service.complete_task("non-existent-id") 
+    assert not service.complete_task("non-existent-id") 
     
