@@ -35,7 +35,7 @@ class TaskService:
                 save_tasks(tasks)
                 return True
             
-        raise ValueError("Tarea no encontrada.")
+        return False
     
     def complete_task(self, task_id: str) -> bool:
         tasks = load_tasks()
@@ -44,4 +44,4 @@ class TaskService:
                 task.done = True
                 save_tasks(tasks)
                 return True
-        raise ValueError("Tarea no encontrada.")
+        return False
