@@ -1,63 +1,53 @@
-# 🧰 Task Manager CLI - DevOps Oriented Python Project
+# 🚀 Task Manager CLI | DevOps-Oriented Python Project
 
 A modular CLI (Command Line Interface) application built with Python to manage tasks directly from the terminal.
 
-This project is part of my transition from Manual QA to DevOps / Backend engineering, focusing on clean architecture, automation, and production-ready practices
+This project is part of my transition from **Manual QA → DevOps / Backend Engineering**, focusing on clean architecture, automation, and production-ready practices.
 
 ---
-## Key Concepts Applied
 
-* Layered architecture (CLI -> Service-> Storage)
+## 🧠 Key Concepts Applied
+
+* Layered architecture (CLI → Service → Storage)
 * Separation of concerns
 * Data persistence using JSON
 * Error handling and validation
-* CLI development with argparse
-* UUID-based entity management 
+* CLI development with `argparse`
+* UUID-based entity management
 
 ---
 
-## 🚀 Features
+## ⚙️ Features
 
 * Add tasks
 * List tasks
 * Mark tasks as completed
 * Remove tasks
-* Prevent duplicate task
+* Prevent duplicate tasks
 * JSON-based persistence
 
 ---
 
-## 🧠 Architecture
+## 🏗 Architecture
 
-This project follows a layered architecture:
-
+```text
+User Input (CLI)
+        ↓
+cli.py (interface)
+        ↓
+service.py (business logic)
+        ↓
+storage.py (data handling)
+        ↓
+tasks.json (data persistence)
 ```
-CLI → Service → Storage → JSON
-```
-
-* **cli.py** → Handles user input from terminal
-* **service.py** → Business logic (rules and validations)
-* **model.py** → Data model (Task)
-* **storage.py** → Data persistence (JSON file)
 
 ---
 
-## 🛠 Tech Stack
+## 📁 Project Structure
 
-* Python 3
-* argparse (CLI)
-* JSON (storage)
-* UUID (unique IDs)
-* Docker 
-* GitHub Actions 
-
----
-
-## 📦 Project Structure
-
-```
+```text
 task_manager_cli/
-│
 ├── src/
 │   └── taskcli/
 │       ├── cli.py
@@ -69,114 +59,115 @@ task_manager_cli/
 │   └── tasks.json
 │
 ├── tests/
+│   └── test_service.py
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
 ├── Dockerfile
 ├── pyproject.toml
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## ⚙️ How to Run
+## ▶️ How to Run
 
-1. Activate your environment:
+Activate your virtual environment:
 
-```
+```bash
 env\Scripts\activate
 ```
-2. Go to the CLI folder
-```
-cd src/taskcli
-```
-3. Run commands:
 
-```
-python cli.py add "Learn DevOps"
-python cli.py list
-```
+Run the CLI:
 
----
-
-## 📌 Example
-
-```
-python cli.py add "Study Docker"
-```
-
-Output:
-
-```
-Tarea agregada: 1234-uuid - Study Docker
+```bash
+python src/taskcli/cli.py add "Learn DevOps"
+python src/taskcli/cli.py list
+python src/taskcli/cli.py complete <task_id>
+python src/taskcli/cli.py remove <task_id>
 ```
 
 ---
 
-## Docker (Planned)
+## 🧪 Testing
 
-```
-docker build -t taskcli .
-docker run taskcli
+Run tests with:
 
-```
----
-## CI/CD (Planned)
-
-This project will include: 
-* GitHub Actions pipeline
-* Automated testing with pytest
-* Linting and code quality checks
----
-## Testing (Planned)
-```
+```bash
 pytest
 ```
----
-
-## ⭐ What This Project Demonstrates
-
-This project demonstrates my ability to:
-
-* Design modular Python applications 
-* Understand backend architecture principles
-* Develop CLI tools similar to DevOps tools like Docker and Kubectl
-* Prepare applications for DevOps workflows such as Docker and CI/CD
 
 ---
 
-## 🚧 Next Improvements
+## 🔄 CI/CD Pipeline
 
-* Add unit tests (pytest)
-* Dockerize the application
-* Implement CI/CD pipeline with GitHub Actions
-* Improve CLI UX
-* Add logging
+This project includes a GitHub Actions pipeline that:
+
+* Runs automated tests with `pytest`
+* Validates code quality (linting)
+* Builds the Docker image
+
+The pipeline is triggered on every push and pull request to the `main` branch.
+
+---
+
+## 🐳 Docker
+
+Build the Docker image:
+
+```bash
+docker build -t taskcli .
+```
+
+Run the container:
+
+```bash
+docker run --rm taskcli
+```
+
+---
+
+## 🎯 What This Project Demonstrates
+
+* Ability to design modular Python applications
+* Understanding of backend architecture principles
+* CLI tool development (similar to DevOps tools like Docker or kubectl)
+* Implementation of CI/CD pipelines with GitHub Actions
+* Containerization using Docker
+
+---
+
+## 🚧 Future Improvements
+
+* Add more unit tests
+* Improve CLI user experience
+* Add logging system
+* Implement FastAPI layer (API version)
+* Deploy to cloud (AWS)
 
 ---
 
 ## 👩‍💻 About Me
 
-I am a QA professional transitioning into DevOps and Backend Engineering. 
+I am a QA professional transitioning into DevOps and Backend Engineering.
 
-This project reflects my focus on: 
+This project reflects my focus on:
+
 * Automation
-* Scalable design 
-* Real-world engineering practices 
+* Scalable system design
+* Real-world engineering practices
 
 ---
-## Why this Matters
 
-This is not just a task manager. 
-It is a foundation project that evolves into: 
-* API 
-* Containerized application
-* CI/CD pipeline
+## ⭐ Why This Project Matters
 
----
-## Future Version 
+This is not just a task manager.
 
-```
+It is a **foundation project** that evolves into:
 
+```text
 CLI → API → Docker → CI/CD → Cloud Deployment
-
 ```
-
-
